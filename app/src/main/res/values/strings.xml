@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">GreenLungs</string>
+    <string name="something_went_wrong">Something Went Wrong</string>
+    <string name="greenlungs_co">greenlungs</string>
+    <string name="continue_with_google">Continue with google</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="profile_text">Profile</string>
+    <string name="air_quality">Air Quality</string>
+    <string name="organization_name_if_any">Organization name (If any)</string>
+    <string name="age">Age</string>
+    <string name="contact_number">Contact number</string>
+    <string name="event_name">Event name</string>
+    <string name="select_event_location">Select event location</string>
+    <string name="back_button">back button</string>
+    <string name="select_start_date_time"><![CDATA[Select start date & time]]></string>
+    <string name="select_end_date_time"><![CDATA[Select end date & time]]></string>
+    <string name="edit_button">Edit Profile</string>
+</resources>

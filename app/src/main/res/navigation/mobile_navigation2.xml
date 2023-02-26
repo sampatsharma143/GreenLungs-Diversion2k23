@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.shunyank.appwriteproject.activities.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_air"
+        android:name="com.shunyank.appwriteproject.activities.ui.dashboard.AirQualityFragment"
+        android:label="@string/air_quality"
+        tools:layout="@layout/fragment_airquality" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.shunyank.appwriteproject.activities.ui.notifications.ProfileFragment"
+        android:label="@string/profile_text"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

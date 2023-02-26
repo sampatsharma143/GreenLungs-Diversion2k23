@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AirQualityActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="55dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:padding="12dp"
+            android:contentDescription="@string/back_button"
+            android:rotation="180"
+            android:src="@drawable/back_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Air Quality"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="19dp"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/event_poster_image"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/air_quality"
+               />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title_text"
+                    style="@style/title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Event Name"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/status_text"
+                    style="@style/title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Event Name"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textColor="@color/text_grey_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1"
+                android:layout_marginTop="30dp"
+                android:rowCount="3"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+                    <LinearLayout
+                        android:id="@+id/map_opener"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:background="@drawable/add_event_bg">
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/meter"/>
+
+                        <TextView
+                            android:id="@+id/air_aqi_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/reg_dark_text"
+                            android:fontFamily="@font/bold"
+                            android:textSize="18sp"
+                            android:layout_marginTop="2dp"
+                            android:text=""/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/reg_light_text"
+                            android:textSize="16sp"
+                            android:layout_marginTop="2dp"
+                            android:text="Air quality index"/>
+                    </LinearLayout>
+
+
+                    <View android:layout_width="20dp"
+                        android:layout_height="match_parent"/>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:background="@drawable/add_event_bg">
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/co"/>
+
+                        <TextView
+                            android:id="@+id/co_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/reg_dark_text"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/bold"
+
+                            android:layout_marginTop="2dp"
+                            android:text=""/>
+
+
+                        <TextView
+                            android:id="@+id/organization_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/reg_light_text"
+                            android:textSize="16sp"
+                            android:layout_marginTop="2dp"
+                            android:text="Carbon mono oxide"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp"
+                    android:weightSum="2"
+                    >
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:background="@drawable/add_event_bg">
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/so2"/>
+
+                        <TextView
+                            android:id="@+id/sulphur_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/reg_dark_text"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/bold"
+
+                            android:layout_marginTop="2dp"
+                            android:text=""/>
+
+
+                        <TextView
+                            android:id="@+id/organizer_user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/reg_light_text"
+                            android:textSize="16sp"
+                            android:layout_marginTop="2dp"
+                            android:text="Sulphur Di Oxide"/>
+                    </LinearLayout>
+
+
+                    <View android:layout_width="20dp"
+                        android:layout_height="match_parent"/>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:background="@drawable/add_event_bg">
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/o3"/>
+
+                        <TextView
+                            android:id="@+id/oz_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/reg_dark_text"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/bold"
+
+                            android:layout_marginTop="2dp"
+                            android:text=""/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/reg_light_text"
+                            android:textSize="16sp"
+                            android:layout_marginTop="2dp"
+                            android:text="Ozone"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </GridLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

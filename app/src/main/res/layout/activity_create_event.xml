@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.event.CreateEventActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="55dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:padding="12dp"
+            android:contentDescription="@string/back_button"
+            android:rotation="180"
+            android:src="@drawable/back_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create event"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_marginStart="18dp"
+                android:src="@drawable/plan_your_plantation_event"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/add_event_layout"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/add_event_bg"
+                >
+
+                <ImageView
+                    android:id="@+id/event_poster"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:visibility="gone"
+                    android:src="@drawable/dummy_image"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/add_button_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="50dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/add_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#96999C" />
+
+                    <TextView
+                        style="@style/reg_light_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Upload event poster"
+                        android:textSize="19sp" />
+                </LinearLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/uploading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:visibility="gone"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical"
+        >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/reg_light_text"
+                    android:text="Uploading..."/>
+                <ProgressBar
+                    android:id="@+id/upload_progressbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:max="100"
+                    android:secondaryProgressTint="@color/main_color"
+                />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_event_name"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/login_button"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="30dp"
+                android:paddingStart="20dp"
+                android:fontFamily="@font/regular"
+                android:hint="@string/event_name"
+                android:textColorHint="@color/text_grey_color"/>
+
+            <EditText
+                android:id="@+id/edt_tree_target"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/login_button"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="30dp"
+                android:paddingStart="20dp"
+                android:inputType="number"
+                android:fontFamily="@font/regular"
+                android:hint="Enter tree plantation target"
+                android:textColorHint="@color/text_grey_color"/>
+
+
+            <TextView
+                android:id="@+id/edt_location"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/login_button"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="30dp"
+                android:paddingStart="20dp"
+                android:textSize="18sp"
+                android:textAlignment="textStart"
+                android:gravity="center"
+                android:fontFamily="@font/regular"
+                android:paddingEnd="20dp"
+
+                android:hint="@string/select_event_location"
+                android:textColorHint="@color/text_grey_color"
+                tools:ignore="RtlCompat"
+                app:drawableTint="@color/text_grey_color"
+                app:drawableEndCompat="@drawable/location_icon" />
+
+
+            <EditText
+                android:id="@+id/edt_org"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/login_button"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="30dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:drawableTint="@color/text_grey_color"
+                android:drawableEnd="@drawable/org_icon"
+                android:fontFamily="@font/regular"
+                android:hint="Organization name"
+                android:textColorHint="@color/text_grey_color"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/title_text"
+                android:text="Schedule dates"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                android:id="@+id/start_date_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/login_button"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="30dp"
+                android:paddingStart="20dp"
+                android:textSize="18sp"
+                android:textAlignment="textStart"
+                android:gravity="center"
+                android:fontFamily="@font/regular"
+                android:paddingEnd="20dp"
+                android:hint="@string/select_start_date_time"
+                android:textColorHint="@color/text_grey_color"
+                tools:ignore="RtlCompat"
+                app:drawableTint="@color/text_grey_color"
+                app:drawableEndCompat="@drawable/calendar_icon" />
+
+            <TextView
+                android:id="@+id/end_date_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/login_button"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="30dp"
+                android:paddingStart="20dp"
+                android:textSize="18sp"
+                android:textAlignment="textStart"
+                android:gravity="center"
+                android:fontFamily="@font/regular"
+                android:paddingEnd="20dp"
+                android:hint="@string/select_end_date_time"
+                android:textColorHint="@color/text_grey_color"
+                tools:ignore="RtlCompat"
+                app:drawableTint="@color/text_grey_color"
+                app:drawableEndCompat="@drawable/calendar_icon" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/continue_button"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:background="@drawable/save_button"
+                android:text="Save &amp; Continue"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:layout_marginTop="90dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="20sp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+        </LinearLayout>
+
+    </ScrollView>
+    <ProgressBar
+        android:id="@+id/main_loading_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="@color/main_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

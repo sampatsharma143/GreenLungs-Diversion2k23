@@ -1,0 +1,120 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.jfrog.bintray'
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 14
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = 1.8
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+}
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven { url "https://a8c-libs.s3.amazonaws.com/android" }
+    }
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+//        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+//        classpath 'com.android.tools.build:gradle:2.3.0+'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+    }
+    ext {
+        libraryVersion = '1.1.1'
+        libraryName = 'datetimepicker'
+        publishedGroupId = 'com.mohamedabulgasem'
+        libraryDescription = 'An easy to use date and time picker.'
+        siteUrl = 'https://github.com/MohamedAbulgasem/DateTimePicker'
+        gitUrl = 'https://github.com/MohamedAbulgasem/DateTimePicker.git'
+    }
+}
+
+group = publishedGroupId
+version = libraryVersion
+
+install {
+    repositories.mavenInstaller.pom.project {
+        name libraryName
+        description libraryDescription
+        packaging 'aar'
+        url siteUrl
+        groupId publishedGroupId
+        artifactId libraryName
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            }
+        }
+        developers {
+            developer {
+                id 'mohamedabulgasem'
+                name 'Mohamed Abulgasem'
+                email 'algiriany93@gmail.com'
+            }
+        }
+        scm {
+            url siteUrl
+            connection gitUrl
+            developerConnection gitUrl
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set("sources")
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+// Configure gradle-bintray-plugin (for publishing releases)
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    publish = true
+
+    pkg {
+        repo = 'maven'
+        name = libraryName
+        desc = libraryDescription
+        websiteUrl = siteUrl
+        issueTrackerUrl = 'https://github.com/MohamedAbulgasem/DateTimePicker/issues'
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publicDownloadNumbers = true
+        version {
+            desc = libraryDescription
+        }
+    }
+}
