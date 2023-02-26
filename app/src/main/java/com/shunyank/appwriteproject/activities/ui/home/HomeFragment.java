@@ -1,6 +1,7 @@
 package com.shunyank.appwriteproject.activities.ui.home;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -156,6 +157,31 @@ public class HomeFragment extends Fragment {
         
         
         return root;
+    }
+
+    @SuppressLint("MissingPermission")
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(requireActivity(), new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        // Got last known location. In some rare situations this can be null.
+                        if (location != null) {
+                            double lat = location.getLatitude();
+                            double geoLong = location.getLongitude();
+
+                            Log.e("lat", lat + "");
+                            Log.e("geoLong", geoLong + "");
+                            binding.addresss.setVisibility(View.VISIBLE);
+                            binding.addresss.setText(getAddressFromLatLng(requireContext(),lat,geoLong));
+
+                            fetchQuality(lat,geoLong);
+                            // Logic to handle location object
+                        }
+                    }
+                });
     }
 
     private void findOtherEvents() {

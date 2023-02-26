@@ -20,9 +20,9 @@ public class OnBoardingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         List<OnBoardingPage> pages = new ArrayList<>();
-        pages.add(new OnBoardingPage(R.drawable.onboarding1, getResources().getColor(R.color.main_color),Color.BLACK,"",""));
-        pages.add(new OnBoardingPage(R.drawable.onboarfing2,getResources().getColor(R.color.main_color),Color.BLACK,"",""));
-        pages.add(new OnBoardingPage(R.drawable.onboarding3,getResources().getColor(R.color.main_color),Color.BLACK,"",""));
+        pages.add(new OnBoardingPage(R.drawable.onboarding1, getResources().getColor(R.color.main_color),Color.BLACK,"                ","             " ));
+        pages.add(new OnBoardingPage(R.drawable.onboarfing2,getResources().getColor(R.color.main_color),Color.BLACK,"              ","           "));
+        pages.add(new OnBoardingPage(R.drawable.onboarding3,getResources().getColor(R.color.main_color),Color.BLACK,"        ","       " ));
 
         OnBoarder.startOnBoarding(this, pages, new OnFinishLastPage() {
             @Override

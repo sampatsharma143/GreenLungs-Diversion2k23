@@ -27,7 +27,8 @@
         android:theme="@style/Theme.AppWriteProject"
         tools:targetApi="31">
         <activity
-            android:name=".NotificationActivity"
+            android:name=".activities.NotificationActivity"
+            android:theme="@style/MainActivityTheme"
             android:exported="false" />
         <activity
             android:name=".activities.AirQualityActivity"
